@@ -29,7 +29,7 @@ Request.prototype.delete = function(callback){
   const request = new XMLHttpRequest();
   request.open("DELETE", this.url);
   request.addEventListener('load', function(){
-    if(this.status !== 204){
+    if(this.status !== 200){
       return;
     }
     callback();

@@ -14,6 +14,7 @@ const _= require('lodash');
    this.bucketlist = [];
    const ul = document.querySelector('#country');
    ul.innerHTML = '';
+   
  }
 
  BucketlistView.prototype.deleteOne = function(deletedCountry) {

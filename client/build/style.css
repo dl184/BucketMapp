@@ -57,6 +57,10 @@ padding-bottom: 15px;
 text-align: center;
 }
 
+#bucket-list{
+  margin: 0 auto;
+text-align: center;
+}
 .nav{
   display: flex;
   flex-direction:column;

@@ -29,11 +29,12 @@ const createRequestComplete = function (country) {
 }
 
 const deleteAllButtonClicked = function (event) {
-  event.preventDefault();
-  request.delete(deleteAllRequestComplete);
+  // event.preventDefault();
+  dBrequest.delete(deleteAllRequestComplete);
 }
 
 const deleteAllRequestComplete = function () {
+  console.log("hi");
     bucketListView.clear();
 }
 
@@ -45,8 +46,8 @@ const appStart = function(){
   const searchBar = document.getElementById("country-search");
   searchBar.addEventListener("keyup", handleKeyPress);
 
-  // const deleteButton = document.querySelector("#deleteButton");
-  // deleteButton.addEventListener("click", deleteAllButtonClicked);
+  const deleteButton = document.querySelector("#deleteButton");
+  deleteButton.addEventListener("click", deleteAllButtonClicked);
 }
 
 document.addEventListener('DOMContentLoaded', appStart);

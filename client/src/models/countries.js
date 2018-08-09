@@ -11,7 +11,7 @@ const countryView = new CountryView();
 const countriesRequest = new Request('https://restcountries.eu/rest/v2/');
 
 const dBrequest = new Request('http://localhost:3000/bucketlist');
-const bucketlistView = new BucketListView();
+const bucketListView = new BucketListView();
 
 
 
