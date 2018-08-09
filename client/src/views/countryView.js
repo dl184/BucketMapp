@@ -41,11 +41,13 @@ const Country = require('../models/countries.js');
    let addButton = document.createElement("button");
    addButton.setAttribute("id", country.alpha3Code);
    addButton.innerText = "Add Country to Bucket List";
-   addButton.addEventListener("click", this.addCountryToBucketList);
+   console.log(this);
+
    li.appendChild(text);
    li.appendChild(addButton);
    ul.appendChild(li);
   }
+
 
 
 

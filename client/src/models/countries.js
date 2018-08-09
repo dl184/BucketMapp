@@ -59,7 +59,8 @@ const populateDB = function (countries) {
 
 const createListItem= function (country) {
   countryView.addCountry(country);
-
+  let addButton = document.getElementById(country.alpha3Code);
+  addButton.addEventListener("click", addCountryToBucketList);
 
 
 }.bind(this);
