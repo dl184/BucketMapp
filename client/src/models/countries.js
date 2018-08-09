@@ -7,8 +7,12 @@ const CountryView = require('../views/countryView.js');
 const Request = require('../services/request.js');
 
 
-const countryView = new CountryView(this.element);
+
+const countryView = new CountryView();
 const countriesRequest = new Request('https://restcountries.eu/rest/v2/');
+const dBrequest = new Request('http://localhost:3000/bucketlist');
+
+
 // const countries = new Country();
 
 
@@ -48,13 +52,15 @@ const populateList = function(countries) {
   }
 }
 
-const populateDB = function (countries) {
-  console.log(countries);
-  let country = countries[0];
+const createRequestComplete = function (country) {
+  bucketListView.addCountry(country);
+}
+
+const populateDB = function (country) {
   console.log(country);
-  app.post(country);
+  dBrequest.post(createRequestComplete, country);
   let div = document.getElementById('country-list');
-  this.clearContent(div);
+  clearContent(div);
 }
 
 const createListItem= function (country) {

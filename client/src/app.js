@@ -8,6 +8,10 @@ const countriesRequest = new Request('https://restcountries.eu/rest/v2/');
 
 const countries = new Country();
 
+const App = function () {
+
+}
+
 const getCountryRequestComplete = function (countries) {
   for (let country of countries) {
     bucketListView.addCountry(country);
