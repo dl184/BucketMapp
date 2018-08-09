@@ -34,9 +34,11 @@ const _= require('lodash');
    const ul = document.querySelector('#country');
    const li = document.createElement('li');
    const text = document.createElement('p');
+   console.log(country.name);
    text.innerText = country.name;
    let countryImage = document.createElement('img');
    countryImage.src = country.flag
+   li.appendChild(text);
    li.appendChild(countryImage);
    ul.appendChild(li);
   }

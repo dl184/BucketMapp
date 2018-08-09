@@ -78,7 +78,7 @@ MongoClient.connect("mongoDb://localhost:27017", function (error, client) {
   const listCollection = db.collection('list');
   const objectID = ObjectID(req.params.id);
   const filterObject = {_id: objectID};
-pastaCollection.deleteOne(filterObject, function(err, result){
+listCollection.deleteOne(filterObject, function(err, result){
     if(err){
       console.log(err);
       res.status(500);
