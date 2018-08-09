@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -186,3 +187,5 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 /***/ })
 
 /******/ });
+=======
+>>>>>>> 25574365a0c2cea03050b211fa8db564b008a08b
