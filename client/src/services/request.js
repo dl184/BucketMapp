@@ -39,7 +39,7 @@ Request.prototype.delete = function(callback){
 
 Request.prototype.post = function(callback, body){
   const request = new XMLHttpRequest();
-  request.open("OPEN", this.url);
+  request.open("POST", this.url);
   request.setRequestHeader("Content-Type", "application/json");
   request.addEventListener("load", function(){
     if(this.status !== 201){
@@ -49,6 +49,7 @@ Request.prototype.post = function(callback, body){
     callback(responseBody);
   })
   request.send(JSON.stringify(body));
+  // console.log(element);
 }
 
 module.exports = Request;

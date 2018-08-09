@@ -8,6 +8,13 @@ div.select{
 background-color: pink;
 }
 
+h1 {
+  text-decoration: underline;
+  text-decoration-color: blue;
+  color: black;
+  font-family: arial;
+  font-size:30px;
+}
 button {
   background-color:White;
   border: 0px;
@@ -41,9 +48,3 @@ button:hover {
   width: 100%;
   top:0;
   z-index:10;
-
-h1{
-  text-decoration: line-through;
-  text-decoration-color: blue;
-  color: black;
-}
