@@ -1,9 +1,13 @@
 
 
 ul{
-  list-style-type: circle;
+  list-style-type: none;
+  margin: 0 auto;
+text-align: center;
 }
-
+p{
+  font-family: arial;
+}
 div.select{
 background-color: pink;
 }
@@ -34,17 +38,32 @@ font-family: gill sans;
 
 }
 
+img{
+  width:150px;
+  height:100px;
+}
 button:hover {
   background-color: black;
   color: white;
    border: 2px solid black;
 }
+.select{
+  margin: 0 auto;
+text-align: center;
+padding-bottom: 15px;
+}
+#country{
+  margin: 0 auto;
+text-align: center;
+}
 
 .nav{
   display: flex;
   flex-direction:column;
-  background-color: #fffee9;
+  background-color: pink;
   position: sticky;
   width: 100%;
   top:0;
   z-index:10;
+  margin: 0 auto;
+text-align: center;
