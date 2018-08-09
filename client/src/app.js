@@ -1,10 +1,12 @@
 const BucketListView = require('./views/bucketlistView');
 const Request = require('./services/request.js');
-const Countries = require('./models/countries.js');
+const Country = require('./models/countries.js');
 
 const bucketListView = new BucketListView();
-const request = new Request('http://localhost:3000/bucketlist');
-const countries = new Countries();
+const dBrequest = new Request('http://localhost:3000/bucketlist');
+const countriesRequest = new Request('https://restcountries.eu/rest/v2/');
+
+const countries = new Country();
 
 const getCountryRequestComplete = function (countries) {
   for (let country of countries) {
@@ -36,13 +38,15 @@ const deleteAllRequestComplete = function () {
 }
 
 const appStart = function(){
-  request.get(getCountryRequestComplete);
+  const ulCountries = document.getElementById("country-choice");
+  console.log(ulCountries);
+  dBrequest.get(getCountryRequestComplete);
 
-  const searchBar = document.getElementById("search-bar");
+  const searchBar = document.getElementById("country-search");
   searchBar.addEventListener("keyup", handleKeyPress);
 
-  const deleteButton = document.querySelector("#deleteButton");
-  deleteButton.addEventListener("click", deleteAllButtonClicked);
+  // const deleteButton = document.querySelector("#deleteButton");
+  // deleteButton.addEventListener("click", deleteAllButtonClicked);
 }
 
 document.addEventListener('DOMContentLoaded', appStart);

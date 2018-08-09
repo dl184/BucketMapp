@@ -5,18 +5,18 @@ const _= require('lodash');
    this.bucketList = [];
  }
 
- Bucklist.prototypeAddCountry = function(country) {
+ BucketlistView.prototype.addCountry = function(country) {
    this.bucketList.push(country);
    this.render(country)
  }
 
- BucketList.prototype.clear = function(country) {
+ BucketlistView.prototype.clear = function(country) {
    this.bucketlist = [];
    const ul = document.querySelector('#country');
    ul.innerHTML = '';
  }
 
- BucketList.prototype.deleteOne = function(deletedCountry) {
+ BucketlistView.prototype.deleteOne = function(deletedCountry) {
    _.remove(this.bucketList, deletedCountry)
    const ul = document.querySelector('#country');
    ul.innerHTML = '';
@@ -30,10 +30,11 @@ const _= require('lodash');
 
  }
 
- BucketList.prototype.render = function(country) {
+ BucketlistView.prototype.render = function(country) {
    const ul = document.querySelector('#country');
    const li = document.createElement('li');
    const text = document.createElement('p');
+   text.innerText = country.name;
    let countryImage = document.createElement('img');
    countryImage.src = country.flag
    li.appendChild(countryImage);

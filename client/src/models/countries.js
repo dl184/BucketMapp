@@ -1,74 +1,89 @@
-const App = require('../app');
-const Require = require('../services/request.js');
-
-const app = new App();
-const request = new Request("");
-
 var Country = function () {
-
+  // this.element = element;
+  // console.log(element);
 }
 
-Country.prototype.makeRequest = function(url, callback
-  // const apiRequest = new XMLHttpRequest();
-  request.open("GET", this.url);
-  request.addEventListener("load", callback);
-  request.send();
-}
+const CountryView = require('../views/countryView.js');
+const Request = require('../services/request.js');
 
-Country.prototype.requestComplete = function() {
-  if (this.status !== 200) return;
-  const jsonString = this.responseText;
-  const countries = JSON.parse(jsonString);
-  populateList(countries);
-}
 
-Country.prototype.requestIndividual = function() {
-  if (this.status !== 200) return;
-  const jsonString = this.responseText;
-  const country = JSON.parse(jsonString);
-  app.post(country);
-}
+const countryView = new CountryView(this.element);
+const countriesRequest = new Request('https://restcountries.eu/rest/v2/');
+// const countries = new Country();
 
-Country.prototype.clearContent= function(node){
+
+//
+// Country.prototype.makeRequest = function(url, callback
+//   // const apiRequest = new XMLHttpRequest();
+//   request.open("GET", this.url);
+//   request.addEventListener("load", callback);
+//   request.send();
+// }
+//
+// Country.prototype.requestComplete = function() {
+//   if (this.status !== 200) return;
+//   const jsonString = this.responseText;
+//   const countries = JSON.parse(jsonString);
+//   populateList(countries);
+// }
+//
+// Country.prototype.requestIndividual = function() {
+//   if (this.status !== 200) return;
+//   const jsonString = this.responseText;
+//   const country = JSON.parse(jsonString);
+//   app.post(country);
+// }
+
+const clearContent= function(node){
   while (node.hasChildNodes()) {
     node.removeChild(node.lastChild);
   }
 }
 
-Country.prototype.populateList = function(countries) {
-  let div = document.getElementById(PLACEHOLDER);
-  this.clearContent(div);
+const populateList = function(countries) {
+  let div = document.getElementById("country-choice");
+  clearContent(div);
   for (let country of countries) {
-    this.createListItem(country);
+    createListItem(country);
   }
 }
 
-Country.prototype.createListItem= function (country) {
-  FORMAT TO BE DECIDED
-
-  let addButton = document.createElement("button");
-  addButton.setAttribute("id", country.alpha3Code);
-  addButton.innerText = "Add Country to Bucket List";
-  addButton.addEventListener("click", addCountryToBucketList)
+const populateDB = function (countries) {
+  console.log(countries);
+  let country = countries[0];
+  console.log(country);
+  app.post(country);
+  let div = document.getElementById('country-list');
+  this.clearContent(div);
 }
+
+const createListItem= function (country) {
+  countryView.addCountry(country);
+
+
+
+}.bind(this);
 
 Country.prototype.handleKeyPress = function () {
-  let search = this.value;
-  request.url = "https://restcountries.eu/rest/v2/name/" + search;
-  this.makeRequest(url, requestComplete);
+  let countrySearch = document.getElementById("country-search");
+  let search = countrySearch.value;
+  countriesRequest.url = "https://restcountries.eu/rest/v2/name/" + search;
+  countriesRequest.get(populateList)
 }
 
-Country.prototype.handleButtonClick = function () {
+const handleButtonClick = function () {
   id = this.id;
   var countries = document.getElementById("countries-list");
-  this.clearContent(countries);
-  this.makeRequest(url, requestIndividual);
+  countriesRequest.url = "https://restcountries.eu/rest/v2/alpha/" + id;
+  countriesRequest.get(addCountryToBucketList)
 }
 
-Country.prototype.addCountryToBucketList = function () {
-  let id = this.id;
-  request.url = "https://restcountries.eu/rest/v2/alpha/" + id;
-  this.makeRequest(url, requestIndividual);
+const addCountryToBucketList = function () {
+  let countrySearch = document.getElementById("country-search");
+  let search = countrySearch.value;
+  countriesRequest.url = "https://restcountries.eu/rest/v2/alpha/" + search;
+  console.log(countriesRequest.url);
+  countriesRequest.get(populateDB);
 }
 
 module.exports = Country;
