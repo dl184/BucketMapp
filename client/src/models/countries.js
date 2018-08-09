@@ -59,7 +59,7 @@ const createRequestComplete = function (country) {
 const populateDB = function (country) {
   console.log(country);
   dBrequest.post(createRequestComplete, country);
-  let div = document.getElementById('country-list');
+  let div = document.getElementById('country-choice');
   clearContent(div);
 }
 

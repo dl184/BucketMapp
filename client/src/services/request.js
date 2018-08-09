@@ -7,7 +7,7 @@ Request.prototype.get = function (callback) {
   request.open("GET", this.url);
   request.addEventListener("load", function(){
     if(this.status !== 200){return;}
-    const responseBody = JSON.parse(this.responseText);
+    const responseBody = JSON.parse(this.responseText)  console.log(responseBody);
     callback(responseBody);
   })
   request.send();
@@ -44,10 +44,11 @@ Request.prototype.post = function(callback, body){
   request.addEventListener("load", function(){
     if(this.status !== 201){
       return;
-    } const responseBody = JSON.parse(this.responseText);
+    }
+    const responseBody = JSON.parse(this.responseText);
     callback(responseBody);
   })
   request.send(JSON.stringify(body));
 }
 
-module.exports = Request; 
+module.exports = Request;
