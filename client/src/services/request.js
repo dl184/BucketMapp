@@ -7,7 +7,8 @@ Request.prototype.get = function (callback) {
   request.open("GET", this.url);
   request.addEventListener("load", function(){
     if(this.status !== 200){return;}
-    const responseBody = JSON.parse(this.responseText)  console.log(responseBody);
+    const responseBody = JSON.parse(this.responseText);
+    console.log(responseBody);
     callback(responseBody);
   })
   request.send();

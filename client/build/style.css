@@ -1,4 +1,6 @@
-
+#map-space{
+  height: 350px;
+};
 
 ul{
   list-style-type: circle;

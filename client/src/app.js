@@ -1,3 +1,5 @@
+let mainMap;
+
 const BucketListView = require('./views/bucketlistView');
 const Request = require('./services/request.js');
 const Country = require('./models/countries.js');
@@ -8,9 +10,7 @@ const countriesRequest = new Request('https://restcountries.eu/rest/v2/');
 
 const countries = new Country();
 
-const App = function () {
-
-}
+const MapWrapper = require('./mapWrapper.js');
 
 const getCountryRequestComplete = function (countries) {
   for (let country of countries) {
@@ -42,11 +42,11 @@ const deleteAllRequestComplete = function () {
 }
 
 const appStart = function(){
+  let mainMap = new MapWrapper('map-space', [0, 0], 1);
   const ulCountries = document.getElementById("country-choice");
   dBrequest.get(getCountryRequestComplete);
   const searchBar = document.getElementById("country-search");
   searchBar.addEventListener("keyup", handleKeyPress);
-
   // const deleteButton = document.querySelector("#deleteButton");
   // deleteButton.addEventListener("click", deleteAllButtonClicked);
 }

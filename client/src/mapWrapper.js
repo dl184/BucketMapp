@@ -7,7 +7,7 @@ const MapWrapper = function(container, coords, zoom){
     // let coords = [event.latlng.lat, event.latlng.lng]
     // this.setView(coords, 11);
     // this.addMarker(coords);
-  }.bind(this))
+  })
 };
 
 // can optionally bind a popup when adding marker
@@ -20,7 +20,7 @@ MapWrapper.prototype.addMarker = function(lat, lng){
 
 // sets the view and zoom
 MapWrapper.prototype.setView = function(lat, lng, zoom){
-  this.map.setView(new L.LatLng(lat, lng, zoom);
+  this.map.setView(new L.LatLng(lat, lng, zoom));
 };
 
 // adds a discrete popup at coords lat, lng
@@ -47,3 +47,5 @@ MapWrapper.prototype.openPop = function(latitude, longitude){
   const targetMarker = _.filter(arrMarkers, { '_latlng': {lat: latitude, lng: longitude}});
   targetMarker[0].openPopup();
 };
+
+module.exports = MapWrapper;
