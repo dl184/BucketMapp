@@ -49,8 +49,8 @@ const appStart = function(){
   const searchBar = document.getElementById("country-search");
   searchBar.addEventListener("keyup", handleKeyPress);
 
-  // const deleteButton = document.querySelector("#deleteButton");
-  // deleteButton.addEventListener("click", deleteAllButtonClicked);
+  const deleteButton = document.querySelector("#deleteButton");
+  deleteButton.addEventListener("click", deleteAllButtonClicked);
 }
 
 document.addEventListener('DOMContentLoaded', appStart);
