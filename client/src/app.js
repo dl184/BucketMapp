@@ -34,7 +34,7 @@ const deleteAllButtonClicked = function (event) {
 }
 
 const deleteAllRequestComplete = function () {
-    bucketListView.clear();
+  bucketListView.clear();
 }
 
 const appStart = function(){
