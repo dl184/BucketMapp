@@ -91,9 +91,42 @@
   !*** ./client/src/app.js ***!
   \***************************/
 /*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const BucketListView = __webpack_require__(/*! ./views/bucketlistView */ \"./client/src/views/bucketlistView.js\");\nconst Request = __webpack_require__(/*! ./services/request.js */ \"./client/src/services/request.js\");\nconst Countries = __webpack_require__(/*! ./models/countries.js */ \"./client/src/models/countries.js\");\n\nconst bucketListView = new BucketListView();\nconst request = new Request('http://localhost:3000/bucketlist');\nconst countries = new Countries();\n\nconst getCountryRequestComplete = function (countries) {\n  for (let country of countries) {\n    bucketListView.addCountry(country);\n  }\n}\n\nconst post = function (country) {\n  request.post(createRequestComplete, country);\n  bucketListView.addCountry(country);\n}\n\nconst handleKeyPress = function (event) {\n  event.preventDefault();\n  countries.handleKeyPress();\n}\n\nconst createRequestComplete = function (country) {\n  bucketListView.addCountry(country);\n}\n\nconst deleteAllButtonClicked = function (event) {\n  event.preventDefault();\n  request.delete(deleteAllRequestComplete);\n}\n\nconst deleteAllRequestComplete = function () {\n    bucketListView.clear();\n}\n\nconst appStart = function(){\n  request.get(getCountryRequestComplete);\n\n  const searchBar = document.getElementById(\"search-bar\");\n  searchBar.addEventListener(\"keyup\", handleKeyPress);\n\n  const deleteButton = document.querySelector(\"#deleteButton\");\n  deleteButton.addEventListener(\"click\", deleteAllButtonClicked);\n}\n\ndocument.addEventListener('DOMContentLoaded', appStart);\n\n\n//# sourceURL=webpack:///./client/src/app.js?");
+
+/***/ }),
+
+/***/ "./client/src/models/countries.js":
+/*!****************************************!*\
+  !*** ./client/src/models/countries.js ***!
+  \****************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./client/src/app.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (13:2)\\nYou may need an appropriate loader to handle this file type.\\n| Country.prototype.makeRequest = function(url, callback\\n|   // const apiRequest = new XMLHttpRequest();\\n>   request.open(\\\"GET\\\", this.url);\\n|   request.addEventListener(\\\"load\\\", callback);\\n|   request.send();\");\n\n//# sourceURL=webpack:///./client/src/models/countries.js?");
+
+/***/ }),
+
+/***/ "./client/src/services/request.js":
+/*!****************************************!*\
+  !*** ./client/src/services/request.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module parse failed: Unexpected token (53:0)\\nYou may need an appropriate loader to handle this file type.\\n| }\\n| module.exports = Request.\\n> \");\n\n//# sourceURL=webpack:///./client/src/services/request.js?");
+
+/***/ }),
+
+/***/ "./client/src/views/bucketlistView.js":
+/*!********************************************!*\
+  !*** ./client/src/views/bucketlistView.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./client/src/views/bucketlistView.js?");
 
 /***/ })
 
