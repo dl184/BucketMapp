@@ -4,6 +4,7 @@ var Country = function () {
 }
 
 const CountryView = require('../views/countryView.js');
+const BucketListView = require('../views/bucketListView.js');
 const Request = require('../services/request.js');
 const BucketListView = require('../views/bucketListView');
 
@@ -11,8 +12,13 @@ const BucketListView = require('../views/bucketListView');
 
 const countryView = new CountryView();
 const countriesRequest = new Request('https://restcountries.eu/rest/v2/');
+<<<<<<< HEAD
 const dBrequest = new Request('http://localhost:3000/bucketlist');
 const bucketListView = new BucketListView();
+=======
+const dBrequest = new Request('http://localhost:27017');
+const bucketlistView = new BucketListView();
+>>>>>>> 70d1efd763108572c748c219113d1f13ab2bb3ab
 
 
 // const countries = new Country();
@@ -61,7 +67,7 @@ const createRequestComplete = function (country) {
 const populateDB = function (country) {
   console.log(country);
   dBrequest.post(createRequestComplete, country);
-  let div = document.getElementById('country-list');
+  let div = document.getElementById('country-choice');
   clearContent(div);
 }
 
