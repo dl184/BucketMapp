@@ -80,8 +80,7 @@ const handleButtonClick = function () {
 }
 
 const addCountryToBucketList = function () {
-  let countrySearch = document.getElementById("country-search");
-  let search = countrySearch.value;
+  let search = this.id;
   countriesRequest.url = "https://restcountries.eu/rest/v2/alpha/" + search;
   console.log(countriesRequest.url);
   countriesRequest.get(populateDB);

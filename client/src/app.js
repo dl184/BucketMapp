@@ -15,7 +15,7 @@ const getCountryRequestComplete = function (countries) {
 }
 
 const post = function (country) {
-  request.post(createRequestComplete, country);
+  dBrequest.post(createRequestComplete, country);
   bucketListView.addCountry(country);
 }
 
