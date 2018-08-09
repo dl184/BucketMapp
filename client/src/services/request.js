@@ -50,4 +50,4 @@ Request.prototype.post = function(callback, body){
   request.send(JSON.stringify(body));
 }
 
-module.exports = Request; 
+module.exports = Request;
