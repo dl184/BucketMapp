@@ -39,9 +39,7 @@ const deleteAllRequestComplete = function () {
 
 const appStart = function(){
   const ulCountries = document.getElementById("country-choice");
-  console.log(ulCountries);
   dBrequest.get(getCountryRequestComplete);
-
   const searchBar = document.getElementById("country-search");
   searchBar.addEventListener("keyup", handleKeyPress);
 
