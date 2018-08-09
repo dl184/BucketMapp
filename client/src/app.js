@@ -1,4 +1,4 @@
-const BucketListView = require('./views/bucketlistView');
+const BucketListView = require('./views/bucketlistView.js');
 const Request = require('./services/request.js');
 const Country = require('./models/countries.js');
 
@@ -7,10 +7,6 @@ const dBrequest = new Request('http://localhost:3000/bucketlist');
 const countriesRequest = new Request('https://restcountries.eu/rest/v2/');
 
 const countries = new Country();
-
-const App = function () {
-
-}
 
 const getCountryRequestComplete = function (countries) {
   for (let country of countries) {

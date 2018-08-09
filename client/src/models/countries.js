@@ -7,13 +7,11 @@ const CountryView = require('../views/countryView.js');
 const BucketListView = require('../views/bucketListView.js');
 const Request = require('../services/request.js');
 
-
-
-
 const countryView = new CountryView();
 const countriesRequest = new Request('https://restcountries.eu/rest/v2/');
-const dBrequest = new Request('http://localhost:3000/bucketlist');
-const bucketListView = new BucketListView();
+
+const dBrequest = new Request('http://localhost:27017');
+const bucketlistView = new BucketListView();
 
 
 
